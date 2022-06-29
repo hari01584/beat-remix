@@ -9,10 +9,10 @@ def _datasetImages(n, root, folder, sampling):
         files.append(os.path.join(subf, ff))
 
     if(sampling == 0):
-        files = random.sample(files, n)
+        files = random.sample(files, min(len(files), n))
         return files
     else:
-        return files[:n]
+        return files[:min(len(files), n)]
 
 def datasetImages(n):
     root = "images"
